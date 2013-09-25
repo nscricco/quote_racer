@@ -1,0 +1,21 @@
+<div id="game">
+	<form>
+		<div id="instructions">
+			<p><b>Welcome to Arrested Racer!</p>
+			<p>Race will begin when you <i>start typing</i> and end when you <i>press enter</i></b></p>
+		</div>
+		</br>
+		<p class="copy"><%= @quote %></p>
+		<textarea class="gameArea" cols="60" rows="4" autofocus="true"></textarea>
+	</form>
+	<p class="results"></p>
+	<form method="post" action="/">
+		<button type="submit">Next Quiz!</button>
+	</form>
+</div>
+
+<script type="text/javascript">
+	document.onreadystatechange = function(){
+		typeRacer(document);
+	};
+</script>
