@@ -1,21 +1,21 @@
 <div id="game">
 	<form>
 		<div id="instructions">
-			<p><b>Welcome to Arrested Racer!</p>
-			<p>Race will begin when you <i>start typing</i> and end when you <i>press enter</i></b></p>
+			<p><b>Welcome to Arrested Development TypeRacer!</b></p>
+			<p>Race will begin when you start typing</p>
 		</div>
 		</br>
-		<p class="copy"><%= @quote %></p>
-		<textarea class="gameArea" cols="60" rows="4" autofocus="true"></textarea>
+		<p id="gameData"><%= @quote %></p>
+		<input id="gameArea" type="text" autofocus="true"></input>
 	</form>
-	<p class="results"></p>
-	<form method="post" action="/">
-		<button type="submit">Next Quiz!</button>
+	<p id="results"></p>
+	<form class="hidden" id="nextGame" method="post" action="/">
+		<button type="submit">Try again</button>
 	</form>
 </div>
 
 <script type="text/javascript">
 	document.onreadystatechange = function(){
-		typeRacer(document);
+		race(document);
 	};
 </script>
