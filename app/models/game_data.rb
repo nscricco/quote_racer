@@ -1,4 +1,4 @@
-class data
+class GameData
 	ARRESTED_DEVELOPMENT_QUOTES = [
 		"I\'ve made a huge mistake.",
 		"I\'m afraid I just blue myself.",
