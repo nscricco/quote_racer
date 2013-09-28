@@ -26,7 +26,7 @@ class GameData
 		@arrested_development = ARRESTED_DEVELOPMENT_QUOTES
 	end
 
-	def arrested_development min_words
+	def arrested_development
 		return 'hello world'
 	end
 end
