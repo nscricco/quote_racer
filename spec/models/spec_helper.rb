@@ -1,8 +1,9 @@
-$LOAD_PATH.unshift(File.expand_path('./index'))
-ENV['RACK_ENV'] = 'test'
-
-require 'config'
 require 'rack/test'
+require_relative '../../app/index'
+
+set :raise_errors, true
+set :dump_errors, true
+set :show_expectations, false
 
 module Spec
 	include Rack::Test::Methods

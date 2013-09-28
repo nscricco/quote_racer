@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative './models/data.rb'
+require_relative 'models/game_data.rb'
 
 get '/' do
 	@data = getQuote
