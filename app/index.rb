@@ -1,8 +1,8 @@
 require 'sinatra'
-require_relative './models/quiz.rb'
+require_relative './models/data.rb'
 
 get '/' do
-	@quote = getQuote
+	@data = getQuote
 	erb :typeracer
 end
 

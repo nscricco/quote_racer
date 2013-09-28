@@ -4,3 +4,7 @@ ruby '1.9.3'
 
 gem 'sinatra'
 gem 'shotgun'
+
+group :development do
+	gem 'rack-test'
+end
