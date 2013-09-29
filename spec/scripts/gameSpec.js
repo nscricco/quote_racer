@@ -14,6 +14,7 @@ describe("game", function(){
 		gameInput = appendToDom('input', 'gameInput', gameContainer);
 		gameStartButton = appendToDom('button', 'gameStartButton', gameContainer);
 
+
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
 		gameInput.disabled = true;
 
@@ -41,12 +42,20 @@ describe("game", function(){
 		beforeEach(function(){
 			gameStartButton.dispatchEvent(new Event('click'));
 		});
-		
+
 		it("should start the timer", function(){
 			expect(timer.startTime).not.toBeNull();
 		});
-		it("should bring the input textbox into focus", function(){
+		it("should allow the user to enter text", function(){
 			expect(gameInput.disabled).toBeFalsy();
 		});
+		it("should bring the input textbox into focus", function(){
+			expect(gameInput.focus()).toBeFalsy();
+		});
+	});
+	describe("during gameplay", function(){
+		it("should change the class of the text if the user is off track", function(){
+			expect(gameInput.className).toEqual('incorrect')
+		})
 	});
 });
