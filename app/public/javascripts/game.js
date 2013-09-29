@@ -11,10 +11,12 @@ var game = {
 		gameInputElement = container.querySelector('#gameInput');
 		tracker.typed = gameInputElement.value;
 		tracker.match() ? gameInputElement.className = 'correct' : gameInputElement.className = 'incorrect';
-		if(tracker.complete()){ this.finishGame(); }
+		if(tracker.complete()){ this.finishGame(container); }
 	},
 	finishGame: function(container){
 		timer.finishIt();
+		gameResults = container.querySelector('#gameResults');
+		gameResults.innerText = "Congratulations, you typed at " + tracker.getWPM() + " words per minute!";
 	}
 }
 
