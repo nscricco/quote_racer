@@ -14,6 +14,7 @@ describe("game", function(){
 		gameInput = appendToDom('input', 'gameInput', gameContainer);
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
+		gameInput.disabled = true;
 	});
 
 	describe("on initialize", function(){
@@ -26,6 +27,9 @@ describe("game", function(){
 		it("should create an element in which the user is able to enter text", function(){
 			expect(gameContainer.innerHTML).toContain("input");
 		});
-		it("should ")
+		it("should not allow the user to enter text", function(){
+			console.log(gameInput.innerHTML)
+			expect(gameInput.disabled).toBeTruthy();
+		});
 	});
 });
