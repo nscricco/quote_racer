@@ -31,5 +31,6 @@ function gameEvents(container){
 	gameInput.addEventListener('keydown', function(){
 		game.updateUserInput(container);
 		highlighter.updateWord(container.querySelector('#gameData'));
+		movable.updateProgress(container.querySelector('#gameImage'));
 	});
 }
