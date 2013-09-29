@@ -1,4 +1,4 @@
-describe("Timer", function(){
+describe("timer", function(){
 	it("should initialize an undefined start time", function(){
 		expect(timer.startTime).toBeNull();
 	});
@@ -12,5 +12,9 @@ describe("Timer", function(){
 	it("should capture a finish time", function(){
 		timer.finishIt();
 		expect(timer.finishTime).toEqual(new Date());
+	});
+	it("should return total time elapsed between start and finish in minutes", function(){
+		timer.startIt(); timer.finishTime = timer.startTime.getTime() + 60000;
+		expect(timer.timeElapsedInMinutes()).toEqual(1);
 	});
 });
