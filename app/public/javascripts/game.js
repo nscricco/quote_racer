@@ -8,7 +8,7 @@ var game = {
 		textbox.disabled = false; textbox.focus();
 	},
 	updateUserInput: function(container){
-		console.log('update that shiz');
+		tracker.typed = container.querySelector('#gameInput').innerText;
 	}
 }
 
