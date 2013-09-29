@@ -30,5 +30,6 @@ function gameEvents(container){
 	var gameInput = container.querySelector('#gameInput');
 	gameInput.addEventListener('keydown', function(){
 		game.updateUserInput(container);
+		highlighter.updateWord(container.querySelector('#gameData'));
 	});
 }
