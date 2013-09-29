@@ -16,9 +16,11 @@ describe("game", function(){
 	});
 
 	describe("on initialize", function(){
+		it("should create a paragraph element with the game phrase", function(){
+			expect(gameContainer.innerHTML).toContain("bambino")
+		});
 		it("should return the correct phrase", function(){
 			expect(game.getGameData(gameContainer)).toEqual(gameData.innerText);
 		});
-		
 	});
 });
