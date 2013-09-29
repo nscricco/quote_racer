@@ -3,5 +3,8 @@ var timer = {
 	finishTime: null,
 	startIt: function(){
 		this.startTime = new Date();
+	},
+	finishIt: function(){
+		this.finishTime = new Date();
 	}
 };
