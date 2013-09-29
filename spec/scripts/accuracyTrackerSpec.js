@@ -21,4 +21,10 @@ describe("tracker", function(){
 		tracker.correct = "Varitek"; tracker.typed = "Varitek";
 		expect(tracker.complete()).toBeTruthy();
 	});
+	it("should calculate words per minute", function(){
+		tracker.correct = tracker.typed = "Nomah hit the ball wicked fah";
+		console.log(tracker.correct)
+		timer.startTime = 0; timer.finishTime = 60000;
+		expect(tracker.getWPM()).toEqual(6);
+	})
 });
