@@ -1,5 +1,5 @@
 var game = {
 	getGameData: function(container){
-		return container.querySelector("#gameData").innerText
+		return container.querySelector("#gameData").innerText;
 	}
 }

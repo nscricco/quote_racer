@@ -11,7 +11,7 @@ describe("game", function(){
 	beforeEach(function(){
 		gameContainer = appendToDom('div', 'gameContainer');
 		gameData = appendToDom('p', 'gameData', gameContainer);
-		gameStartButton = appendToDom('button', 'gameStart', gameContainer);
+		gameInput = appendToDom('input', 'gameInput', gameContainer);
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
 	});
@@ -24,7 +24,8 @@ describe("game", function(){
 			expect(game.getGameData(gameContainer)).toEqual(gameData.innerText);
 		});
 		it("should create an element in which the user is able to enter text", function(){
-			expect(gameContainer.innerHTML).toContain("button");
+			expect(gameContainer.innerHTML).toContain("input");
 		});
+		it("should ")
 	});
 });
