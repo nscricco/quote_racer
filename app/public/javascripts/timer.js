@@ -1,0 +1,3 @@
+var timer = {
+	startTime: null
+};
