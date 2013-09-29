@@ -1,16 +1,25 @@
 var game = {
-	getGameData: function(container){
-		return container.querySelector('#gameData').innerText;
+	initialize: function(container){
+		tracker.correct = container.querySelector('#gameData').innerText;
 	},
-	startButtonHandler: function(container){
+	startIt: function(container){
 		timer.startIt();
-		container.querySelector('#gameInput').focus();
+		textbox = container.querySelector('#gameInput');
+		textbox.disabled = false; textbox.focus();
+	},
+	updateUserInput: function(container){
+		console.log('update that shiz');
 	}
 }
 
 function gameEvents(container){
-	gameStartButton = container.querySelector('#gameStartButton')
+	var gameStartButton = container.querySelector('#gameStartButton');
 	gameStartButton.addEventListener('click', function(){
-		game.startButtonHandler(container);
+		game.startIt(container);
 	});
+
+	var gameInput = container.querySelector('#gameInput');
+	gameInput.addEventListener('keydown', function(){
+		game.updateUserInput(container);
+	})
 }
