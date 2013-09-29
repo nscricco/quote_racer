@@ -18,7 +18,6 @@ describe("highlighter", function(){
 		var element = document.createElement('p'); element.innerText = tracker.correct;
 		tracker.typed = "Anything i";
 		highlighter.updateWord(element);
-		console.log(element.innerHTML)
 		expect(element.innerHTML).toBe('Anything <span id=\"highlight\">is</span> possible!!!')
 	});
 });
