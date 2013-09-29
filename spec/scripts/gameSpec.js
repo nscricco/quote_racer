@@ -12,8 +12,9 @@ describe("game", function(){
 		gameContainer = appendToDom('div', 'gameContainer');
 		gameData = appendToDom('p', 'gameData', gameContainer);
 		gameInput = appendToDom('input', 'gameInput', gameContainer);
-		gameStartButton = appendToDom('button', 'gameStartButton', gameContainer);
 		// game input class will change from correct to incorrect based on match with gameData
+		gameStartButton = appendToDom('button', 'gameStartButton', gameContainer);
+		gameResults = appendToDom('p', 'gameResults', gameContainer);
 
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
@@ -21,6 +22,10 @@ describe("game", function(){
 
 		game.initialize(gameContainer);
 		gameEvents(gameContainer);
+	});
+
+	afterEach(function(){
+		document.body.removeChild(gameContainer);
 	});
 
 	describe("on initialize", function(){
@@ -89,11 +94,14 @@ describe("game", function(){
 	});
 	describe("on completion", function(){
 		beforeEach(function(){
-			game.finishGame();
+			game.finishGame(gameContainer);
 		});
 
 		it("should stop the timer", function(){
 			expect(timer.finishTime).not.toBeNull();
+		});
+		it("should display the game results in a paragraph element", function(){
+			expect(gameContainer.innerHTML).toContain("words per minute");
 		});
 	});
 });
