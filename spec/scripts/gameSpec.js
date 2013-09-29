@@ -111,5 +111,8 @@ describe("game", function(){
 		it("should display the game results in a paragraph element", function(){
 			expect(gameContainer.innerHTML).toContain("words per minute");
 		});
+		it("should no rot highlight any word", function(){
+			expect(gameData.innerHTML).not.toContain('span')
+		})
 	});
 });
