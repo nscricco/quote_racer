@@ -61,7 +61,7 @@ describe("game", function(){
 		});
 		it("should highlight the first word", function(){
 			expect(gameData.innerHTML).toContain("Wake</span>");
-		})
+		});
 	});
 	describe("during gameplay", function(){
 		beforeEach(function(){
@@ -87,6 +87,11 @@ describe("game", function(){
 			gameInput.value = "Wake up the damn bambino";
 			gameInput.dispatchEvent(new Event('keydown'));
 			expect(gameInput.className).toEqual('correct');
+		});
+		it("should highlight the active word", function(){
+			gameInput.value = "Wake up t";
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(gameData.innerHTML).toContain('the</span>')
 		});
 		it("should call finish if user has typed the entire game phrase", function(){
 			gameInput.value = gameData.innerText;
