@@ -18,6 +18,7 @@ describe("game", function(){
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
 		gameInput.disabled = true;
 
+		game.initialize(gameContainer);
 		gameEvents(gameContainer);
 	});
 
@@ -25,8 +26,8 @@ describe("game", function(){
 		it("should create a paragraph element with the game phrase", function(){
 			expect(gameContainer.innerHTML).toContain("bambino");
 		});
-		it("should return the correct phrase", function(){
-			expect(game.getGameData(gameContainer)).toEqual(gameData.innerText);
+		it("should store the game phrase in the accuracy tracker", function(){
+			expect(tracker.correct).toEqual(gameData.innerText);
 		});
 		it("should create a text input element", function(){
 			expect(gameContainer.innerHTML).toContain("input");
@@ -54,8 +55,13 @@ describe("game", function(){
 		});
 	});
 	describe("during gameplay", function(){
-		it("should change the class of the text if the user is off track", function(){
+		it("should update the accuracy tracker on keydown", function(){
+			spyOn(game, 'updateUserInput');
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(game.updateUserInput).toHaveBeenCalled();
+		});
+		it("should change the class of the input element if the user is off track", function(){
 			expect(gameInput.className).toEqual('incorrect')
-		})
+		});
 	});
 });
