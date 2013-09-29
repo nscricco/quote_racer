@@ -38,9 +38,15 @@ describe("game", function(){
 		});
 	});
 	describe("on start button click", function(){
-		it("should start the timer", function(){
+		beforeEach(function(){
 			gameStartButton.dispatchEvent(new Event('click'));
+		});
+		
+		it("should start the timer", function(){
 			expect(timer.startTime).not.toBeNull();
+		});
+		it("should bring the input textbox into focus", function(){
+			expect(gameInput.disabled).toBeFalsy();
 		});
 	});
 });
