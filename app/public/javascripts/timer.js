@@ -6,5 +6,8 @@ var timer = {
 	},
 	finishIt: function(){
 		this.finishTime = new Date();
+	},
+	timeElapsedInMinutes: function(){
+		return (this.finishTime - this.startTime)/60000
 	}
 };
