@@ -6,4 +6,8 @@ describe("highlighter", function(){
 	it("should start on the first word", function(){
 		expect(highlighter.activeWord()).toBe('Anything');
 	});
+	it("should stay on the active word", function(){
+		tracker.typed = "Anything i"
+		expect(highlighter.activeWord()).toBe('is');
+	})
 });
