@@ -121,7 +121,10 @@ describe("game", function(){
 			expect(gameContainer.innerHTML).toContain("words per minute");
 		});
 		it("should not highlight any word", function(){
-			expect(gameData.innerHTML).not.toContain('span')
-		})
+			expect(gameData.innerHTML).not.toContain('span');
+		});
+		it("should keep the game image on screen", function(){
+			expect(gameContainer.innerHTML).toContain('img');
+		});
 	});
 });
