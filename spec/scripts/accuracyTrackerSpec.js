@@ -23,8 +23,12 @@ describe("tracker", function(){
 	});
 	it("should calculate words per minute", function(){
 		tracker.correct = tracker.typed = "Nomah hit the ball wicked fah";
-		console.log(tracker.correct)
 		timer.startTime = 0; timer.finishTime = 60000;
 		expect(tracker.getWPM()).toEqual(6);
-	})
+	});
+	it("should round the words per minute to be an integer", function(){
+		tracker.correct = tracker.typed = "David Ortiz hit a wicked dingah over the monstah";
+		timer.startTime = 0; timer.finishTime = 28739;
+		expect(tracker.getWPM() % 1).toEqual(0);
+	});
 });
