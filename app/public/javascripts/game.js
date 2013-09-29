@@ -6,6 +6,7 @@ var game = {
 		timer.startIt();
 		textbox = container.querySelector('#gameInput');
 		textbox.disabled = false; textbox.focus();
+		highlighter.updateWord(container.querySelector('#gameData'));
 	},
 	updateUserInput: function(container){
 		gameInputElement = container.querySelector('#gameInput');
