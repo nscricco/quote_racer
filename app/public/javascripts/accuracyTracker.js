@@ -1,3 +1,4 @@
 var tracker = {
-	correct: ""
+	correct: "",
+	typed: ""
 }
