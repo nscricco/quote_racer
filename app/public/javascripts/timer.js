@@ -1,3 +1,6 @@
 var timer = {
-	startTime: null
+	startTime: null,
+	startIt: function(){
+		this.startTime = new Date();
+	}
 };
