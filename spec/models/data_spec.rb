@@ -10,6 +10,6 @@ describe 'Data' do
 	end
 	it 'should return a phrase of defined minimum length' do
 		phrase_length_in_words = 100
-		expect(phrase.arrested_development.split(" ").length).to be > 100
+		expect(phrase.arrested_development(phrase_length_in_words).split(" ").length).to be >= 100
 	end
 end

@@ -26,7 +26,11 @@ class GameData
 		@arrested_development = ARRESTED_DEVELOPMENT_QUOTES
 	end
 
-	def arrested_development
-		return 'hello world'
+	def arrested_development min_length = 0
+		quotes = @arrested_development.sample
+		until quotes.split(" ").length >= min_length do
+			quotes+= " " + @arrested_development.sample
+		end
+		return quotes
 	end
 end
