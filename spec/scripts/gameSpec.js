@@ -11,6 +11,7 @@ describe("game", function(){
 	beforeEach(function(){
 		gameContainer = appendToDom('div', 'gameContainer');
 		gameData = appendToDom('p', 'gameData', gameContainer);
+		gameStartButton = appendToDom('button', 'gameStart', gameContainer);
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
 	});
