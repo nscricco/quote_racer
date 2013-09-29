@@ -55,10 +55,15 @@ describe("game", function(){
 		});
 	});
 	describe("during gameplay", function(){
-		it("should update the accuracy tracker on keydown", function(){
+		it("should call update user input keydown", function(){
 			spyOn(game, 'updateUserInput');
 			gameInput.dispatchEvent(new Event('keydown'));
 			expect(game.updateUserInput).toHaveBeenCalled();
+		});
+		it("should update the accuracy tracker on keydown", function(){
+			gameInput.value = "Wake up";
+			game.updateUserInput(gameContainer);
+			expect(tracker.match()).toBeTruthy();
 		});
 		it("should change the class of the input element if the user is off track", function(){
 			expect(gameInput.className).toEqual('incorrect')
