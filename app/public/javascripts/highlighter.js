@@ -1,5 +1,10 @@
 var highlighter = {
 	activeWord: function(){
-		return tracker.correct.split(" ")[0]
+		correctWords = tracker.correct.split(" "); typedWords = tracker.typed.split(" ");
+		for(var i = 0; i < correctWords.length; i++){
+			if(correctWords[i].localeCompare(typedWords[i]) != 0){
+				return correctWords[i];
+			}
+		}
 	}
 }
