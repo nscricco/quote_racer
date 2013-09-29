@@ -6,5 +6,8 @@ var tracker = {
 	},
 	complete: function(){
 		return this.correct.localeCompare(this.typed) == 0;
+	},
+	getWPM: function(){
+		return Math.round(this.correct.split(" ").length/timer.timeElapsedInMinutes());
 	}
 }
