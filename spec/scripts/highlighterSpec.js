@@ -14,5 +14,11 @@ describe("highlighter", function(){
 		tracker.typed = "Anything is"
 		expect(highlighter.activeWord()).toBe('possible!!!');
 	});
-	
+	it("should move span in HTML to wrap active word", function(){
+		var element = document.createElement('p'); element.innerText = tracker.correct;
+		tracker.typed = "Anything i";
+		highlighter.updateWord(element);
+		console.log(element.innerHTML)
+		expect(element.innerHTML).toBe('Anything <span id=\"highlight\">is</span> possible!!!')
+	});
 });
