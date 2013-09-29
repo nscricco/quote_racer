@@ -10,12 +10,13 @@ var game = {
 	updateUserInput: function(container){
 		gameInputElement = container.querySelector('#gameInput');
 		tracker.typed = gameInputElement.value;
-		if(tracker.match()){
-			gameInputElement.className = 'correct';
+		tracker.match() ? gameInputElement.className = 'correct' : gameInputElement.className = 'incorrect';
+		
+		if(tracker.complete()){
+			this.finishIt();
 		}
-		else{
-			gameInputElement.className = 'incorrect';
-		}
+	},
+	finishIt: function(container){
 	}
 }
 
