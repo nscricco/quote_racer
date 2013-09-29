@@ -59,6 +59,9 @@ describe("game", function(){
 		it("should bring the input textbox into focus", function(){
 			expect(gameInput.focus()).toBeFalsy();
 		});
+		it("should highlight the first word", function(){
+			expect(gameData.innerHTML).toContain("Wake</span>");
+		})
 	});
 	describe("during gameplay", function(){
 		beforeEach(function(){
