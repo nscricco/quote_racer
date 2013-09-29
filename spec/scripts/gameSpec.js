@@ -55,6 +55,10 @@ describe("game", function(){
 		});
 	});
 	describe("during gameplay", function(){
+		beforeEach(function(){
+			gameStartButton.dispatchEvent(new Event('click'));
+		});
+
 		it("should call update user input keydown", function(){
 			spyOn(game, 'updateUserInput');
 			gameInput.dispatchEvent(new Event('keydown'));
@@ -62,11 +66,21 @@ describe("game", function(){
 		});
 		it("should update the accuracy tracker on keydown", function(){
 			gameInput.value = "Wake up";
-			game.updateUserInput(gameContainer);
-			expect(tracker.match()).toBeTruthy();
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(tracker.typed).toEqual("Wake up");
 		});
-		it("should change the class of the input element if the user is off track", function(){
-			expect(gameInput.className).toEqual('incorrect')
+		it("should update the class of the input element to incorrect if the user is off track", function(){
+			gameInput.value = "Wake up the damn Jeter"
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(gameInput.className).toEqual('incorrect');
+		});
+		it("should update the class of the input to correct if the user is on track", function(){
+			gameInput.value = "Wake up the damn bambino";
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(gameInput.className).toEqual('correct');
+		});
+		it("should call finish it if user has typed the entire game phrase", function(){
+
 		});
 	});
 });
