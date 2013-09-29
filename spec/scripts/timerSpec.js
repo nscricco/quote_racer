@@ -1,4 +1,8 @@
 describe("timer", function(){
+	beforeEach(function(){
+		timer.startTime = null; timer.finishTime = null;
+	});
+
 	it("should initialize an undefined start time", function(){
 		expect(timer.startTime).toBeNull();
 	});
