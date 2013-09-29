@@ -8,7 +8,14 @@ var game = {
 		textbox.disabled = false; textbox.focus();
 	},
 	updateUserInput: function(container){
-		tracker.typed = container.querySelector('#gameInput').innerText;
+		gameInputElement = container.querySelector('#gameInput');
+		tracker.typed = gameInputElement.value;
+		if(tracker.match()){
+			gameInputElement.className = 'correct';
+		}
+		else{
+			gameInputElement.className = 'incorrect';
+		}
 	}
 }
 
@@ -21,5 +28,5 @@ function gameEvents(container){
 	var gameInput = container.querySelector('#gameInput');
 	gameInput.addEventListener('keydown', function(){
 		game.updateUserInput(container);
-	})
+	});
 }
