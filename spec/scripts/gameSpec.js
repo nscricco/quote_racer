@@ -15,6 +15,7 @@ describe("game", function(){
 		// game input class will change from correct to incorrect based on match with gameData
 		gameStartButton = appendToDom('button', 'gameStartButton', gameContainer);
 		gameResults = appendToDom('p', 'gameResults', gameContainer);
+		gameImage = appendToDom('img', 'gameImage', gameContainer);
 
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
@@ -44,6 +45,9 @@ describe("game", function(){
 		it("should create a start button element", function(){
 			expect(gameContainer.innerHTML).toContain("button");
 		});
+		it("should create an image element", function(){
+			expect(gameContainer.innerHTML).toContain("img")
+		})
 	});
 	describe("on start button click", function(){
 		beforeEach(function(){
@@ -92,6 +96,11 @@ describe("game", function(){
 			gameInput.value = "Wake up t";
 			gameInput.dispatchEvent(new Event('keydown'));
 			expect(gameData.innerHTML).toContain('the</span>')
+		});
+		it("should update the position of the game image", function(){
+			spyOn(movable, 'updateProgress');
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(movable.updateProgress).toHaveBeenCalled();
 		});
 		it("should call finish if user has typed the entire game phrase", function(){
 			gameInput.value = gameData.innerText;
