@@ -79,8 +79,14 @@ describe("game", function(){
 			gameInput.dispatchEvent(new Event('keydown'));
 			expect(gameInput.className).toEqual('correct');
 		});
-		it("should call finish it if user has typed the entire game phrase", function(){
-
+		it("should call finish if user has typed the entire game phrase", function(){
+			gameInput.value = gameData.innerText;
+			spyOn(game, 'finishIt');
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(game.finishIt).toHaveBeenCalled();
 		});
+	});
+	describe("on completion", function(){
+		it("should ")
 	});
 });
