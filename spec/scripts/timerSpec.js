@@ -9,4 +9,8 @@ describe("Timer", function(){
 	it("should initialize an undefined finish time", function(){
 		expect(timer.finishTime).toBeNull();
 	});
+	it("should capture a finish time", function(){
+		timer.finishIt();
+		expect(timer.finishTime).toEqual(new Date());
+	});
 });
