@@ -13,4 +13,8 @@ describe("tracker", function(){
 		tracker.correct = "Pedro"; tracker.typed = "Ped";
 		expect(tracker.match()).toBeTruthy();
 	});
+	it("should know if the race is incomplete", function(){
+		tracker.correct = "Dustin"; tracker.typed = "Du";
+		expect(tracker.complete()).toBeFalsy();
+	});
 });
