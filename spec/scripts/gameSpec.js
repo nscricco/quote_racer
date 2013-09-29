@@ -59,6 +59,9 @@ describe("game", function(){
 		it("should bring the input textbox into focus", function(){
 			expect(gameInput.focus()).toBeFalsy();
 		});
+		it("should highlight the first word", function(){
+			expect(gameData.innerHTML).toContain("Wake</span>");
+		});
 	});
 	describe("during gameplay", function(){
 		beforeEach(function(){
@@ -85,6 +88,11 @@ describe("game", function(){
 			gameInput.dispatchEvent(new Event('keydown'));
 			expect(gameInput.className).toEqual('correct');
 		});
+		it("should highlight the active word", function(){
+			gameInput.value = "Wake up t";
+			gameInput.dispatchEvent(new Event('keydown'));
+			expect(gameData.innerHTML).toContain('the</span>')
+		});
 		it("should call finish if user has typed the entire game phrase", function(){
 			gameInput.value = gameData.innerText;
 			spyOn(game, 'finishGame');
@@ -103,5 +111,8 @@ describe("game", function(){
 		it("should display the game results in a paragraph element", function(){
 			expect(gameContainer.innerHTML).toContain("words per minute");
 		});
+		it("should not highlight any word", function(){
+			expect(gameData.innerHTML).not.toContain('span')
+		})
 	});
 });
