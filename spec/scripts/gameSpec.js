@@ -13,6 +13,7 @@ describe("game", function(){
 		gameData = appendToDom('p', 'gameData', gameContainer);
 		gameInput = appendToDom('input', 'gameInput', gameContainer);
 		gameStartButton = appendToDom('button', 'gameStartButton', gameContainer);
+		// game input class will change from correct to incorrect based on match with gameData
 
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
@@ -81,12 +82,18 @@ describe("game", function(){
 		});
 		it("should call finish if user has typed the entire game phrase", function(){
 			gameInput.value = gameData.innerText;
-			spyOn(game, 'finishIt');
+			spyOn(game, 'finishGame');
 			gameInput.dispatchEvent(new Event('keydown'));
-			expect(game.finishIt).toHaveBeenCalled();
+			expect(game.finishGame).toHaveBeenCalled();
 		});
 	});
 	describe("on completion", function(){
-		it("should ")
+		beforeEach(function(){
+			game.finishGame();
+		});
+
+		it("should stop the timer", function(){
+			expect(timer.finishTime).not.toBeNull();
+		});
 	});
 });
