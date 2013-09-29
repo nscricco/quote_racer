@@ -16,6 +16,8 @@ describe("game", function(){
 
 		gameData.innerText = "Wake up the damn bambino and have me face him. I'll drill him in the ass.";
 		gameInput.disabled = true;
+
+		gameEvents(gameContainer);
 	});
 
 	describe("on initialize", function(){
@@ -35,8 +37,10 @@ describe("game", function(){
 			expect(gameContainer.innerHTML).toContain("button");
 		});
 	});
-	describe("on start", function(){
-		var start = gameStartButton.dispatchEvent(new Event('click'));
-		it("should ")
+	describe("on start button click", function(){
+		it("should start the timer", function(){
+			gameStartButton.dispatchEvent(new Event('click'));
+			expect(timer.startTime).not.toBeNull();
+		});
 	});
 });
