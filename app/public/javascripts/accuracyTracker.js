@@ -1,4 +1,7 @@
 var tracker = {
 	correct: "",
-	typed: ""
+	typed: "",
+	match: function(){
+		return this.correct.match(new RegExp(this.typed));
+	}
 }
