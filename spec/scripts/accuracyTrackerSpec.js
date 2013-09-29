@@ -1,6 +1,8 @@
 describe("tracker", function(){
 	it("should know the correct phrase", function(){
-		tracker.correct = "Hello World";
-		expect(tracker.correct).toEqual("Hello World");
+		expect(tracker.correct).toBeDefined();
+	})
+	it("should know the typed phrase", function(){
+		expect(tracker.typed).toBeDefined();
 	})
 });
