@@ -2,7 +2,7 @@ var game = {
 	initialize: function(container){
 		tracker.correct = container.querySelector('#gameData').innerText;
 	},
-	startIt: function(container){
+	startGame: function(container){
 		timer.startIt();
 		textbox = container.querySelector('#gameInput');
 		textbox.disabled = false; textbox.focus();
@@ -11,19 +11,17 @@ var game = {
 		gameInputElement = container.querySelector('#gameInput');
 		tracker.typed = gameInputElement.value;
 		tracker.match() ? gameInputElement.className = 'correct' : gameInputElement.className = 'incorrect';
-		
-		if(tracker.complete()){
-			this.finishIt();
-		}
+		if(tracker.complete()){ this.finishGame(); }
 	},
-	finishIt: function(container){
+	finishGame: function(container){
+		timer.finishIt();
 	}
 }
 
 function gameEvents(container){
 	var gameStartButton = container.querySelector('#gameStartButton');
 	gameStartButton.addEventListener('click', function(){
-		game.startIt(container);
+		game.startGame(container);
 	});
 
 	var gameInput = container.querySelector('#gameInput');
