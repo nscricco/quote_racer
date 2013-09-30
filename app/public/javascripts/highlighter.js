@@ -9,6 +9,7 @@ var highlighter = {
 	},
 	updateWord: function(element){
 		var activeWordRegExp = new RegExp(this.activeWord());
+		activeWordRegExp = activeWordRegExp.replace(/[?]/, "\?")
 		element.innerHTML = element.innerText.replace(activeWordRegExp, "<span id=\"highlight\">" + this.activeWord() + "</span>");
 	}
 }
