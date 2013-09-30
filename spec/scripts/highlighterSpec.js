@@ -20,4 +20,10 @@ describe("highlighter", function(){
 		highlighter.updateWord(element);
 		expect(element.innerHTML).toBe('Anything <span id=\"highlight\">is</span> possible!!!')
 	});
+	it("should actively look for ?'s and handle them accordingly (due to it being a regex keyletter)", function(){
+		var element = document.createElement('p'); tracker.correct = element.innerText = "Say what?";
+		tracker.typed = "Say wh";
+		highlighter.updateWord(element);
+		expect(element.innerHTML).toBe('Say <span id=\"highlight\">what?</span>');
+	});
 });
