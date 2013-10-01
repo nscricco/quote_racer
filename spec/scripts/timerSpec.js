@@ -5,4 +5,8 @@ describe("timer", function(){
 	it("should have a finish time", function(){
 		expect(timer.finishTime).toBeDefined();
 	});
+	it("should capture a start time", function(){
+		timer.startTimer();
+		expect(timer.startTime).toEqual(new Date())
+	});
 });
