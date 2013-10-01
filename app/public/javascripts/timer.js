@@ -1,3 +1,4 @@
 var timer = {
-	startTime = null
+	startTime: null,
+	finishTime: null
 }
