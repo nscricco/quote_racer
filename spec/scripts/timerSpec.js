@@ -13,4 +13,10 @@ describe("timer", function(){
 		timer.stopTimer();
 		expect(timer.finishTime).toEqual(new Date());
 	});
+	it("should only redefine finish time if it is null", function(){
+	});
+	it("should return the time elapsed between start and finish", function(){
+		timer.startTimer(); timer.finishTime = timer.startTime.getTime() + 60000;
+		expect(timer.timeElapsedInMinutes()).toEqual(1);
+	});
 });
